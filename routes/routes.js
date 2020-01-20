@@ -1,16 +1,18 @@
 var appRouter = (app) => {
-    app.get("/", function(req, res) {
+    app.get("/", (req, res) => {
+      console.log("Route racine en get")
       res.status(200).send("Route racine en get");
     });
     app.get("/realisateur", (req, res) => {
+      console.log("Route realisateur en get")
       // send the list of all directors
       res.status(200).send("Route realisateur en get");
     });
     app.get("/realisateur/:nomRea", (req, res) => {
       // send all DVDs of a director
       const nomRealisateur = req.params.nomRea;
-   
       if (nomRealisateur!=="") {
+        console.log(`Route realisateur en get pour ${nomRealisateur}`)
         res.status(200).send(`route realisateur pour ${nomRealisateur}`);
       } else {
         res.status(400).send({ message: 'route realisateur mais avec un nom vide' });
