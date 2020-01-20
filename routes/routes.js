@@ -33,14 +33,14 @@ var appRouter = (app) => {
       }
     });
     
-    app.post("/realisateur/:nomRea", (req, res) => {
-      // add a director
-      const nomRealisateur = req.params.nomRea;
+    app.post("/dvd", (req, res) => {
+      // add a dvd
+      const dvd = req.body;
    
-      if (nomRealisateur!=="") {
-        res.status(200).send(`route ajout realisateur pour ${nomRealisateur}`);
+      if (dvd!==null) {
+        res.status(200).send(`route ajout DVD pour ${dvd}`);
       } else {
-        res.status(400).send({ message: 'route ajout realisateur mais avec un nom vide' });
+        res.status(400).send({ message: 'route ajout realisateur mais avec un mauvais DVD' });
       }
     });
     app.post("/acteur/:nomAct", (req, res) => {
@@ -53,6 +53,6 @@ var appRouter = (app) => {
         res.status(400).send({ message: 'route ajout acteur mais avec un nom vide' });
       }
     });
-  }
+   }
   
   module.exports = appRouter;
